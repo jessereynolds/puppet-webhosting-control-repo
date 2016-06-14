@@ -8,6 +8,13 @@ This is a simple Puppet control repo demonstrating how you might set up a webhos
 
 It is intended for a quick-and-dirty masterless puppet architecture, so it configures the puppet agent to not start on boot, etc.
 
+I created this repo after a friend suggested you would need to write about 1,000 lines of Puppet code to set up a webserver for hosting PHP websites. This solution has 57 required lines. There's other puppet code in this repository that does other things like setting up a static site (no PHP), setting up BIND if you want to run a primary nameserver, and so on. 
+- `role::wordpress_server_1` - 8 lines
+- `profile::wordpress` - 36 lines
+- `profile::mysql` - 10 lines
+- `profile::base` - 23 lines (but none of this is actually necessary to achieve the stated aim)
+- `site.pp` - 3 lines
+
 ### Quick Start
 
 Pre-requisites:
@@ -47,4 +54,3 @@ puppet apply --modulepath \
   /etc/puppetlabs/code/environments/production/modules:/etc/puppetlabs/code/environments/production/site \
   /etc/puppetlabs/code/environments/production/manifests/site.pp
 ```
-
